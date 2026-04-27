@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html>
+border-radius: <!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Auto Deportivo </title>
+<title>Sheyla Llivisaca</title>
 
 <style>
 body {
@@ -14,7 +14,7 @@ body {
   background: #87ceeb;
 }
 
-/* Calle */
+/* Suelo */
 .calle {
   position: absolute;
   bottom: 0;
@@ -37,8 +37,8 @@ body {
   );
 }
 
-/* 🚗 Auto */
-.auto {
+/* 🐱 GATO */
+.gato {
   position: absolute;
   bottom: 120px;
   left: 0px;
@@ -49,77 +49,72 @@ body {
 .cuerpo {
   width: 120px;
   height: 40px;
-  background: red;
-  border-radius: 20px 20px 10px 10px;
+  background: orange;
+  border-radius: 20px;
   position: relative;
 }
 
-/* Techo */
-.techo {
-  width: 60px;
-  height: 25px;
-  background: #c62828;
-  position: absolute;
-  top: -20px;
-  left: 30px;
-  border-radius: 10px;
-}
-
-/* Ventana */
-.ventana {
+/* Cabeza */
+.cabeza {
   width: 40px;
-  height: 15px;
-  background: #90caf9;
+  height: 40px;
+  background: #ffb74d;
   position: absolute;
-  top: 3px;
-  left: 10px;
-  border-radius: 5px;
-}
-
-/* Luces */
-.luz {
-  width: 8px;
-  height: 8px;
-  background: yellow;
-  position: absolute;
-  left: -5px;
-  top: 15px;
+  top: -15px;
+  left: 80px;
   border-radius: 50%;
-  box-shadow: 0 0 10px yellow;
 }
 
-.freno {
-  width: 8px;
-  height: 8px;
-  background: red;
+/* Orejas */
+.oreja {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 15px solid orange;
   position: absolute;
-  right: -5px;
-  top: 15px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px red;
-  opacity: 0;
+  top: -25px;
 }
 
-/* Ruedas */
-.rueda {
-  width: 25px;
-  height: 25px;
+.o1 { left: 85px; }
+.o2 { left: 105px; }
+
+/* Ojos */
+.ojo {
+  width: 6px;
+  height: 6px;
   background: black;
   border-radius: 50%;
   position: absolute;
-  bottom: -15px;
+  top: 0px;
 }
 
-.r1 { left: 15px; }
-.r2 { left: 80px; }
+.oj1 { left: 95px; }
+.oj2 { left: 110px; }
 
-@keyframes girar {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Patas */
+.pata {
+  width: 15px;
+  height: 15px;
+  background: #e65100;
+  position: absolute;
+  bottom: -10px;
+  border-radius: 5px;
 }
 
-.girando {
-  animation: girar 0.3s linear infinite;
+.p1 { left: 15px; }
+.p2 { left: 50px; }
+.p3 { left: 85px; }
+
+/* Animación */
+@keyframes caminar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+.caminando {
+  animation: caminar 0.3s linear infinite;
 }
 
 /* 💨 Humo */
@@ -127,20 +122,67 @@ body {
   position: absolute;
   left: -20px;
   bottom: 10px;
-  width: 12px;
-  height: 12px;
-  background: gray;
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.5);
   border-radius: 50%;
   opacity: 0;
 }
 
 @keyframes humoAnim {
-  0% { transform: translateY(0) scale(1); opacity: 0.6; }
-  100% { transform: translateY(-40px) scale(2); opacity: 0; }
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-30px) scale(2);
+    opacity: 0;
+  }
 }
 
 .humo.activo {
   animation: humoAnim 1s infinite;
+}
+
+/* 🚦 SEÑALES */
+.senal {
+  position: absolute;
+  bottom: 120px;
+  width: 15px;
+  height: 80px;
+  background: #444;
+  border-radius: 5px;
+}
+
+.senal::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -7px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+/* Inicio (verde) */
+.inicio {
+  left: 20px;
+}
+
+.inicio::before {
+  background: green;
+  box-shadow: 0 0 10px green;
+}
+
+/* Fin (rojo) */
+.final {
+  right: 20px;
+}
+
+.final::before {
+  background: red;
+  box-shadow: 0 0 10px red;
 }
 
 /* Texto */
@@ -153,106 +195,66 @@ body {
   font-size: 24px;
   margin-top: 10px;
 }
-
 </style>
 </head>
 
 <body>
 
-<h1>🏎️ Auto Deportivo Inteligente</h1>
-<div id="distancia">Cargando...</div>
-<div id="estado"></div>
+<h1>Sheyla Llivisaca</h1>
 
-<div class="auto" id="auto">
-
-  <div class="cuerpo">
-    <div class="techo">
-      <div class="ventana"></div>
-    </div>
-    <div class="luz"></div>
-    <div class="freno" id="freno"></div>
-  </div>
-
-  <div class="rueda r1" id="r1"></div>
-  <div class="rueda r2" id="r2"></div>
-
-  <div class="humo" id="humo"></div>
-
-</div>
+<div id="distancia">Distancia: 0 cm</div>
+<div id="estado">Estado: Detenido</div>
 
 <div class="calle"></div>
 <div class="linea"></div>
 
+<!-- Señales -->
+<div class="senal inicio"></div>
+<div class="senal final"></div>
+
+<!-- GATO -->
+<div class="gato" id="gato">
+  <div class="cuerpo"></div>
+  <div class="cabeza"></div>
+
+  <div class="oreja o1"></div>
+  <div class="oreja o2"></div>
+
+  <div class="ojo oj1"></div>
+  <div class="ojo oj2"></div>
+
+  <div class="pata p1"></div>
+  <div class="pata p2"></div>
+  <div class="pata p3"></div>
+
+  <div class="humo" id="humo"></div>
+</div>
+
 <script>
+let gato = document.getElementById("gato");
+let distanciaTexto = document.getElementById("distancia");
+let estadoTexto = document.getElementById("estado");
+let humo = document.getElementById("humo");
 
-const token = "d5d327b5-b402-4f2e-8fd3-f08d67986b2f";
+setInterval(() => {
+  let distancia = Math.floor(Math.random() * 100);
 
-function actualizar() {
+  distanciaTexto.innerHTML = "Distancia: " + distancia + " cm";
 
-  fetch("https://api.tago.io/data?variable=distancia", {
-    headers: { "Device-Token": "11cfe7e5-0dcf-4345-b739-f60b7ed76f3e" }
-  })
-  .then(res => res.json())
-  .then(data => {
+  if (distancia > 30) {
+    gato.style.left = (distancia * 5) + "px";
+    estadoTexto.innerHTML = "Estado: Caminando 🐱";
 
-    let d = data.result[0].value;
+    gato.classList.add("caminando");
+    humo.classList.add("activo");
+  } else {
+    estadoTexto.innerHTML = "Estado: Detenido";
 
-    document.getElementById("distancia").innerHTML =
-      "Distancia: " + d + " cm";
+    gato.classList.remove("caminando");
+    humo.classList.remove("activo");
+  }
 
-    let auto = document.getElementById("auto");
-    let estado = document.getElementById("estado");
-    let freno = document.getElementById("freno");
-    let humo = document.getElementById("humo");
-
-    let r1 = document.getElementById("r1");
-    let r2 = document.getElementById("r2");
-
-    // 👉 MOVIMIENTO COMPLETO DE IZQUIERDA A DERECHA
-    let max = window.innerWidth - 150;
-    let pos = (d / 100) * max;
-
-    if (pos < 0) pos = 0;
-    if (pos > max) pos = max;
-
-    auto.style.left = pos + "px";
-
-    // 🌙 modo noche
-    if (d < 20) {
-      document.body.style.background = "#0b1a2a";
-    } else {
-      document.body.style.background = "#87ceeb";
-    }
-
-    // 🚨 comportamiento
-    if (d < 15) {
-      estado.innerHTML = "🚨 FRENANDO";
-      freno.style.opacity = 1;
-      humo.classList.remove("activo");
-      r1.classList.remove("girando");
-      r2.classList.remove("girando");
-    } 
-    else if (d < 30) {
-      estado.innerHTML = "⚠️ Acercándose";
-      freno.style.opacity = 0;
-      humo.classList.add("activo");
-      r1.classList.add("girando");
-      r2.classList.add("girando");
-    } 
-    else {
-      estado.innerHTML = "🟢 A TODA VELOCIDAD";
-      freno.style.opacity = 0;
-      humo.classList.add("activo");
-      r1.classList.add("girando");
-      r2.classList.add("girando");
-    }
-
-  })
-  .catch(err => console.log(err));
-}
-
-setInterval(actualizar, 700);
-
+}, 1000);
 </script>
 
 </body>
